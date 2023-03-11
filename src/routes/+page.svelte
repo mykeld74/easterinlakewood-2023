@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import EasterSunday from '$components/EasterSunday.svelte';
+	import EEH from '$components/EasterEggHunt.svelte';
+	import GoodFriday from '$components/GoodFriday.svelte';
+	import Directions from '$components/Directions.svelte';
+</script>
+
+<svelte:head>
+	<title>Easter In Lakewood | Westwoods Community Church</title>
+</svelte:head>
+<EasterSunday />
+<EEH />
+<GoodFriday />
+<Directions />
