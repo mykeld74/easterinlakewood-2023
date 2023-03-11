@@ -66,6 +66,7 @@
 			<div class="imgContainer"><Img source="station10" altTag="Good Friday" /></div>
 			<div class="imgContainer"><Img source="station11" altTag="Good Friday" /></div>
 		</div>
+		<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
 		<p class="desc">Friday: April 7th, 4pm-8pm - come anytime</p>
 		<p class="desc">The experience will take 30-45 minutes.</p>
 	</div>
