@@ -34,6 +34,8 @@
 	.directions {
 		background: radial-gradient(circle, rgba(20, 57, 62, 1) 0%, rgba(8, 5, 40, 1) 100%);
 		position: relative;
+		flex-direction: column;
+		gap: 5vh;
 		&:after {
 			position: absolute;
 			content: '';
