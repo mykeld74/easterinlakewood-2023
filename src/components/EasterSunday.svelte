@@ -35,6 +35,7 @@
 			<p class="desc"><strong>Easter Changes Everything!</strong></p>
 			<p class="desc">Sunday: April 9th, 10:00am</p>
 			<p class="desc">Lakewood Park: 150 S. Kipling St, Lakewood CO</p>
+			<p class="desc">Seating is limited so please bring chairs or blankets.</p>
 		</div>
 	</div>
 </Block>
