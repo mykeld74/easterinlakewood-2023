@@ -50,10 +50,6 @@
 
 <Block {blockClass} {id}>
 	<div class="GFcontainer" id="GFContainer">
-		<div class="headlineContainer">
-			<h1>Good</h1>
-			<h1>Friday</h1>
-		</div>
 		<div class="textContainer">
 			<p class="desc gfDesc">
 				Join us as we press into Good Friday by experiencing the stations of the Cross. It will be
@@ -61,14 +57,12 @@
 				cross. As you work through the stations.
 			</p>
 		</div>
-		<div class="stationsContainer">
-			<div class="imgContainer"><Img source="station2" altTag="Good Friday" /></div>
-			<div class="imgContainer"><Img source="station10" altTag="Good Friday" /></div>
-			<div class="imgContainer"><Img source="station11" altTag="Good Friday" /></div>
+
+		<div class="descContainer">
+			<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
+			<p class="desc">Friday: March 29th, 4pm-8pm - come anytime</p>
+			<p class="desc">The experience will take 30-45 minutes.</p>
 		</div>
-		<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
-		<p class="desc">Friday: April 7th, 4pm-8pm - come anytime</p>
-		<p class="desc">The experience will take 30-45 minutes.</p>
 	</div>
 </Block>
 
@@ -86,12 +80,21 @@
 			margin: 0;
 		}
 	}
+	.GFcontainer {
+		display: flex;
+
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 90vh;
+		color: #fff;
+		text-shadow: 2px 2px 3px #000;
+	}
 	.stationsContainer {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 90%;
-		max-width: 860px;
+
 		margin: 0 auto;
 		padding: 0;
 		gap: 5vw;

@@ -20,79 +20,61 @@
 
 <Block {blockClass} {id}>
 	<div class="contentContainer">
-		<h1>Easter Sunday, You are invited!</h1>
-		<div class="bfaContainer">
-			<div class="imgContainer skull">
-				<Img source="EasterCE" altTag="Easter Sunday" />
-			</div>
-		</div>
+		<h1>
+			Join us as we celebrate the resurrection of Jesus. We will have something engaging and
+			encouraging for all ages.
+		</h1>
+
+		<div class="easterContainer"><p class="easterText">Easter</p></div>
+
 		<div class="timeContainer">
-			<p class="desc">
-				Easter is not just a celebration of spring, it is more than an excuse to search for eggs and
-				eat candy, more than a remembrance of an historical event, even more than a religious
-				celebration
-			</p>
-			<p class="desc"><strong>Easter Changes Everything!</strong></p>
-			<p class="desc">Sunday: April 9th, 10:00am</p>
-			<p class="desc">Lakewood Park: 150 S. Kipling St, Lakewood CO</p>
-			<p class="desc">Seating is limited so please bring chairs or blankets.</p>
+			<p class="desc">Sunday: March 31st, 9:00am & 10:30am</p>
+			<p class="desc">7700 W. Woodard Drive</p>
 		</div>
 	</div>
 </Block>
 
 <style lang="scss">
-	@keyframes slideIn {
-		0% {
-			transform: translateX(-600px) scale(0.5);
-			opacity: 0;
-		}
-
-		100% {
-			transform: translateX(0%) scale(1);
-			opacity: 1;
-		}
-	}
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-
-		100% {
-			opacity: 1;
-		}
-	}
 	h1 {
-		font-size: clamp(46px, 8vw, 60px);
+		font-size: clamp(30px, 5vw, 50px);
 		text-align: center;
+		align-self: center;
+		max-width: 960px;
+		margin: 0 auto;
 	}
-
-	.bfaContainer {
+	.easterContainer {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		min-height: 100%;
+		margin: 0 auto;
+	}
+	.easterText {
+		font-size: clamp(80px, 36vw, 520px);
+		text-align: center;
+		font-weight: 500;
+		font-family: 'Cormorant Garamond', serif;
+		line-height: 1;
 		margin: 0;
-		padding: 0;
-		gap: 5vw;
+		text-shadow: none;
+		align-self: center;
+	}
 
-		@media (max-width: 620px) {
-			flex-direction: column;
-			gap: 30px;
+	.timeContainer {
+		align-self: self-end;
+		.desc {
+			max-width: 100%;
+		}
+		p {
+			font-size: clamp(30px, 5vw, 50px);
 		}
 	}
+
 	.imgContainer {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: clamp(300px, 80vw, 1200px);
 		margin: 0;
-	}
-	.bfaText {
-		width: clamp(300px, 45vw, 600px);
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-		align-items: flex-start;
 	}
 </style>

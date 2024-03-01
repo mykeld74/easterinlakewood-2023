@@ -31,20 +31,18 @@
 </script>
 
 <Block {blockClass} {id}>
-	<div class="contentContainer .eehContainer">
-		<div class="eeh">
-			<p class="join">Join us for an</p>
-			<p class="easter">Easter</p>
-			<p class="eggHunt">Egg Hunt</p>
+	<div class="contentContainer eehContainer">
+		<p class="hopOver">Hop on over for our</p>
+		<div class="joinUs">
+			<p class="join">Join us on</p>
+			<p class="date">March 30th <br /> 10-noon</p>
 		</div>
-		<div id="eehDesc">
-			<p class="desc">Hop on over for a fun time and find some eggs!</p>
-
-			<p class="desc">Join your neighbors for our annual Community Egg Hunt!</p>
-
-			<p class="desc">Everyone is welcome!</p>
-			<p class="desc">Sunday: April 9th, 11:10am - following our Easter service.</p>
-			<p class="desc">Lakewood Park: 150 S. Kipling St, Lakewood CO</p>
+		<div class="eeh">
+			<p class="easter">Easter<br />Egg Hunt</p>
+		</div>
+		<div class="eehDesc">
+			<p class="join">For some egg-citing fun! Obstacle course, food, games, maze & more!!</p>
+			<p class="allAges">Event for all ages!</p>
 		</div>
 	</div>
 </Block>
@@ -53,28 +51,66 @@
 	.contentContainer {
 		overflow: hidden;
 	}
-	.eeh {
-		color: #fff;
-		p {
-			text-align: center;
-			text-transform: uppercase;
-			margin: 0 auto 10px;
-			line-height: 1;
+	.eehContainer {
+		display: grid;
+		grid-template-columns: 1fr 2fr 1fr;
+		grid-template-areas: 'title title title' 'joinUs eeh eehDesc';
+		margin: 0;
+		gap: 20px;
+		@media (max-width: 1900px) {
+			grid-template-columns: 1fr;
+			grid-template-areas: 'title' 'eeh' 'joinUs' 'eehDesc';
 		}
 	}
+	.eeh {
+		grid-area: eeh;
+	}
+	.hopOver {
+		font-size: clamp(34px, 6vw, 60px);
+		margin: 0;
+		text-align: center;
+		grid-area: title;
+	}
+
 	.join {
-		font-size: clamp(46px, 8vw, 60px);
-		font-style: italic;
+		font-size: clamp(26px, 4vw, 40px);
+		text-align: center;
+		margin: 0;
 	}
-	.easter {
-		font-size: clamp(110px, 12vw, 160px);
-		font-weight: 900;
+	.easter,
+	.date,
+	.allAges {
+		font-size: clamp(110px, 16vw, 200px);
+		font-family: 'Laries', serif;
+		text-shadow: none;
+		color: transparent;
+		text-align: center;
+		line-height: 1;
+		background-image: linear-gradient(to top, #e79982, #c48165);
+		background-clip: text;
+		-webkit-background-clip: text;
+		padding-top: 50px;
+		margin: 0;
 	}
-	.eggHunt {
-		font-size: clamp(55px, 7vw, 90px);
-		font-weight: 700;
+	.date,
+	.allAges {
+		font-size: clamp(30px, 6vw, 50px);
+		margin: 0;
 	}
-	p {
-		text-shadow: 3px 3px 8px #000;
+	.joinUs {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		grid-area: joinUs;
+	}
+	.eehDesc {
+		grid-area: eehDesc;
+		color: #333;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 	}
 </style>

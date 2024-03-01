@@ -19,16 +19,17 @@
 	}
 
 	.easterSunday {
-		background: radial-gradient(circle, #ffd657 0%, #ffae38 35vw, #fea32e 100vw);
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/Easter2024')
+			50% 50% / cover no-repeat;
 		color: #fff;
 		justify-content: space-around;
 	}
 	.eeh-block {
-		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/easterEggBG')
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/EasterEgg_2024')
 			50% 50% / cover no-repeat fixed;
 	}
 	.GoodFriday {
-		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/GoodFridayBG')
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/GoodFriday_2024')
 			50% 50% / cover no-repeat fixed;
 	}
 	.directions {

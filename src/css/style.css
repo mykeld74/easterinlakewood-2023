@@ -1,17 +1,29 @@
-html{
-  font-family: 'Oswald', sans-serif;
-  scroll-behavior: smooth;
+@font-face {
+	font-family: 'Laries';
+	src: url('./fonts/Laries.otf') format('opentype');
 }
-.desc{
-  font-size: clamp(26px, 3vw, 34px);
-  text-align: center;
-  width: calc(100% - 30px);
-  max-width: 840px;
-  margin:  20px auto;
-  line-height: 1.4;
-  color: #fff;
+
+html {
+	font-family: 'Lato', sans-serif;
+	scroll-behavior: smooth;
+}
+.desc {
+	font-size: clamp(26px, 3vw, 34px);
+	text-align: center;
+	width: calc(100% - 30px);
+	max-width: 1200px;
+	margin: 20px auto;
+	line-height: 1.4;
+	color: #fff;
 }
 .contentContainer {
-  width: 90vw;
-  margin: 20px auto;
+	width: 90vw;
+	margin: 20px auto;
+	.easterSunday & {
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		height: 90vh;
+		text-shadow: 2px 2px 4px #000;
+		margin: 20px auto 80px;
+	}
 }
