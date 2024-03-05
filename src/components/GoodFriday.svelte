@@ -51,17 +51,17 @@
 <Block {blockClass} {id}>
 	<div class="GFcontainer" id="GFContainer">
 		<div class="textContainer">
+			<p class="desc gfDesc">Join us for a Deconstructed Passover Night.</p>
 			<p class="desc gfDesc">
-				Join us as we press into Good Friday by experiencing the stations of the Cross. It will be
-				an interactive cross-section of elements, ideas, and objects from Jesus' journey to the
-				cross. As you work through the stations.
+				You will walk through each portion of the Passover and reflect on what Jesus not only
+				experienced, but shared with his disciples.
 			</p>
 		</div>
 
 		<div class="descContainer">
 			<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
-			<p class="desc">Friday: March 29th, 4pm-8pm - come anytime</p>
-			<p class="desc">The experience will take 30-45 minutes.</p>
+			<p class="desc">Friday: March 29th, 4pm-7pm - come anytime</p>
+			<p class="desc">The experience will take about 30 minutes to complete.</p>
 		</div>
 	</div>
 </Block>
