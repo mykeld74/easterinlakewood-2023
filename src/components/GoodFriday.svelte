@@ -52,7 +52,7 @@
 	<div class="GFcontainer" id="GFContainer">
 		<div class="textContainer">
 			<p class="desc gfDesc">
-				Join us for a Stations of the Cross self directed experience and an evening Worship Service.
+				Join us for a Stations of the Cross self-directed experience and an evening Worship Service.
 			</p>
 		</div>
 		<div class="headlineContainer">
