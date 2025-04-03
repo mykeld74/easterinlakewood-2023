@@ -1,21 +1,8 @@
 <script>
 	import Block from '$components/block.svelte';
-	import Img from '$components/Image.svelte';
-	import { gsap } from 'gsap';
-	import { onMount } from 'svelte';
+
 	let blockClass = 'easterSunday';
 	let id = 'EasterSunday';
-
-	onMount(() => {
-		const width = window.innerWidth;
-		if (width >= 768) {
-			const tl = gsap.timeline();
-			tl.from('.skull', { opacity: 0, duration: 1, x: 0, scale: 0.0, ease: 'ease-in-out' }).from(
-				'.bfaContainer .bfaText img',
-				{ opacity: 0, duration: 0.75, stagger: 0.25, scale: 0.2, ease: 'ease-in-out' }
-			);
-		}
-	});
 </script>
 
 <Block {blockClass} {id}>
@@ -28,7 +15,12 @@
 		<div class="easterContainer"><p class="easterText">Easter</p></div>
 
 		<div class="timeContainer">
-			<p class="desc">Sunday: March 31st, 9:00am & 10:30am</p>
+			<p class="desc">Sunday: April 20th, 9:00am & 10:30am</p>
+			<p class="desc">
+				Because the great news of Easter is too big to be contained in a single Sunday, we will be
+				doing 3 weeks of Easter celebrations.
+			</p>
+			<p class="desc">Please join us April 20th, 27th, and May 4th. At 9:00 or 10:30.</p>
 			<p class="desc">7700 W. Woodard Drive</p>
 		</div>
 	</div>
@@ -53,7 +45,7 @@
 		font-size: clamp(80px, 36vw, 520px);
 		text-align: center;
 		font-weight: 500;
-		font-family: 'Cormorant Garamond', serif;
+		font-family: 'Federo', sans-serif;
 		line-height: 1;
 		margin: 0;
 		text-shadow: none;
@@ -62,11 +54,13 @@
 
 	.timeContainer {
 		align-self: self-end;
+		max-width: 1200px;
+		margin: 0 auto;
 		.desc {
 			max-width: 100%;
 		}
 		p {
-			font-size: clamp(30px, 5vw, 50px);
+			font-size: clamp(22px, 4vw, 40px);
 		}
 	}
 

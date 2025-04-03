@@ -35,7 +35,7 @@
 		<p class="hopOver">Hop on over for our</p>
 		<div class="joinUs">
 			<p class="join">Join us on</p>
-			<p class="date">March 30th <br /> 10-noon</p>
+			<p class="date">April 19th <br /> 10-noon</p>
 		</div>
 		<div class="eeh">
 			<p class="easter">Easter<br />Egg Hunt</p>

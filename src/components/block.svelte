@@ -12,14 +12,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 100vw;
+		width: 100%;
+		overflow-x: hidden;
 		min-height: 100vh;
 		margin: 0;
 		padding: 20px 0;
 	}
 
 	.easterSunday {
-		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/Easter2024')
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/Easter2025')
 			50% 50% / cover no-repeat;
 		color: #fff;
 		justify-content: space-around;
@@ -29,7 +30,7 @@
 			50% 50% / cover no-repeat fixed;
 	}
 	.GoodFriday {
-		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/GoodFriday_2024')
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/GoodFriday2025')
 			50% 50% / cover no-repeat fixed;
 	}
 	.directions {

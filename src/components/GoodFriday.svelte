@@ -51,17 +51,19 @@
 <Block {blockClass} {id}>
 	<div class="GFcontainer" id="GFContainer">
 		<div class="textContainer">
-			<p class="desc gfDesc">Join us for a Deconstructed Passover Night.</p>
 			<p class="desc gfDesc">
-				You will walk through each portion of the Passover and reflect on what Jesus not only
-				experienced, but shared with his disciples.
+				Join us for a Stations of the Cross self directed experience and an evening Worship Service.
 			</p>
+		</div>
+		<div class="headlineContainer">
+			<h1 class="gfTitle">Good Friday</h1>
 		</div>
 
 		<div class="descContainer">
 			<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
-			<p class="desc">Friday: March 29th, 4pm-7pm - come anytime</p>
-			<p class="desc">The experience will take about 30 minutes to complete.</p>
+			<p class="desc">Friday: April 18th</p>
+			<p class="desc">Stations of the Cross: 12pm-6:30pm (come anytime)</p>
+			<p class="desc">Worship Service: 7pm-7:45pm</p>
 		</div>
 	</div>
 </Block>
@@ -75,8 +77,9 @@
 		flex-direction: column;
 		h1 {
 			text-align: center;
-			font-size: clamp(36px, 9vw, 128px);
-			text-transform: uppercase;
+			font-family: 'Federo', sans-serif;
+			font-size: clamp(36px, 20vw, 180px);
+
 			margin: 0;
 		}
 	}
