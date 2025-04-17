@@ -77,6 +77,7 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		text-align: center;
 	}
 	.cancel {
 		font-size: clamp(30px, 20vw, 200px);
