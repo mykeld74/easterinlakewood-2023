@@ -32,6 +32,10 @@
 
 <Block {blockClass} {id}>
 	<div class="contentContainer eehContainer">
+		<div class="cancelContainer">
+			<p class="cancel">Canceled</p>
+			<p class="cancelDesc">Due to inclement weather we have canceled the Easter Egg Hunt.</p>
+		</div>
 		<p class="hopOver">Hop on over for our</p>
 		<div class="joinUs">
 			<p class="join">Join us on</p>
@@ -57,10 +61,34 @@
 		grid-template-areas: 'title title title' 'joinUs eeh eehDesc';
 		margin: 0;
 		gap: 20px;
+		position: relative;
 		@media (max-width: 1900px) {
 			grid-template-columns: 1fr;
 			grid-template-areas: 'title' 'eeh' 'joinUs' 'eehDesc';
 		}
+	}
+	.cancelContainer {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		background-color: rgba(255, 255, 255, 0.9);
+		z-index: 100;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.cancel {
+		font-size: clamp(30px, 20vw, 200px);
+		margin: 0;
+		font-weight: 900;
+		color: #847ec0;
+		rotate: -15deg;
+		margin-bottom: 3rem;
+	}
+	.cancelDesc {
+		font-size: clamp(20px, 4vw, 30px);
+		color: #333;
 	}
 	.eeh {
 		grid-area: eeh;
