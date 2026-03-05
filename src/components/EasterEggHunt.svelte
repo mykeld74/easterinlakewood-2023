@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
 	import Block from '$components/block.svelte';
-	import { gsap } from 'gsap';
-	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
-	gsap.registerPlugin(ScrollTrigger);
 
-	let blockClass = 'eeh-block';
-	let id = 'EasterEggHunt';
+	const blockClass = 'eeh-block';
+	const id = 'EasterEggHunt';
 
-	onMount(() => {
+	onMount(async () => {
+		const { gsap } = await import('gsap');
+		const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+		gsap.registerPlugin(ScrollTrigger);
+
 		const width = window.innerWidth;
 		if (width >= 768) {
-			let tl = gsap.timeline({
+			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: '.eeh',
 					start: 'top bottom',
@@ -62,30 +63,6 @@
 			grid-template-columns: 1fr;
 			grid-template-areas: 'title' 'eeh' 'joinUs' 'eehDesc';
 		}
-	}
-	.cancelContainer {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		background-color: rgba(255, 255, 255, 0.9);
-		z-index: 100;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
-	}
-	.cancel {
-		font-size: clamp(30px, 20vw, 200px);
-		margin: 0;
-		font-weight: 900;
-		color: #847ec0;
-		rotate: -15deg;
-		margin-bottom: 3rem;
-	}
-	.cancelDesc {
-		font-size: clamp(20px, 4vw, 30px);
-		color: #333;
 	}
 	.eeh {
 		grid-area: eeh;

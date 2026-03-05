@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import Block from '$components/block.svelte';
 
-	let blockClass = 'easterSunday';
-	let id = 'EasterSunday';
+	const blockClass = 'easterSunday';
+	const id = 'EasterSunday';
 </script>
 
 <Block {blockClass} {id}>
@@ -68,11 +68,4 @@
 		}
 	}
 
-	.imgContainer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: clamp(300px, 80vw, 1200px);
-		margin: 0;
-	}
 </style>

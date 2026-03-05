@@ -6,6 +6,7 @@
 html {
 	font-family: 'Lato', sans-serif;
 	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
 }
 
 .desc {

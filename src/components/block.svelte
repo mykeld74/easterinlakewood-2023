@@ -1,10 +1,15 @@
-<script>
-	export let blockClass = '';
-	export let id;
+<script lang="ts">
+	interface Props {
+		blockClass?: string;
+		id: any;
+		children?: import('svelte').Snippet;
+	}
+
+	let { blockClass = '', id, children }: Props = $props();
 </script>
 
 <div class="block {blockClass}" {id}>
-	<slot />
+	{@render children?.()}
 </div>
 
 <style lang="scss">
@@ -17,6 +22,7 @@
 		min-height: 100vh;
 		margin: 0;
 		padding: 20px 0;
+		scroll-snap-align: start;
 	}
 
 	.easterSunday {

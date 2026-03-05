@@ -1,12 +1,17 @@
-<script>
+<script lang="ts">
 	import Img from '$components/Image.svelte';
 	import '$css/reset.css';
 	import '$css/style.css';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Federo&display=swap"
 		rel="stylesheet"
@@ -21,7 +26,7 @@
 		<li><a href="#Directions">Directions</a></li>
 	</ul>
 </nav>
-<slot />
+{@render children?.()}
 <footer>
 	<div class="imgContainer">
 		<a href="https://westwoodscc.org" target="_blank" rel="noopener noreferrer"

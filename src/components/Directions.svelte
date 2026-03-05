@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import Block from '$components/block.svelte';
 	import Img from '$components/Image.svelte';
-	let blockClass = 'directions';
-	let id = 'Directions';
+
+	const blockClass = 'directions';
+	const id = 'Directions';
 </script>
 
 <Block {blockClass} {id}>
@@ -13,7 +14,7 @@
 			allowFullScreen
 			title="Westwoods Map"
 			id="wwMap"
-		/>
+		></iframe>
 		<div class="directionText">
 			<p class="churchName">Westwoods Community Church</p>
 			<p>7700 W. Woodard Dr.</p>
@@ -63,8 +64,7 @@
 			}
 		}
 	}
-	#wwMap,
-	#lpMap {
+	#wwMap {
 		width: 100%;
 		aspect-ratio: 16/9;
 	}

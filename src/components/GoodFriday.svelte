@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
 	import Block from '$components/block.svelte';
-	import Img from '$components/Image.svelte';
-	import { gsap } from 'gsap';
-	import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 	import { onMount } from 'svelte';
-	gsap.registerPlugin(ScrollTrigger);
-	let blockClass = 'GoodFriday';
-	let id = 'GoodFriday';
 
-	onMount(() => {
+	const blockClass = 'GoodFriday';
+	const id = 'GoodFriday';
+
+	onMount(async () => {
+		const { gsap } = await import('gsap');
+		const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+		gsap.registerPlugin(ScrollTrigger);
+
 		const width = window.innerWidth;
 		if (width >= 768) {
-			let gftl = gsap.timeline({
+			const gftl = gsap.timeline({
 				scrollTrigger: {
 					trigger: '#GFContainer',
 					start: 'top bottom',
@@ -28,22 +29,6 @@
 					ease: 'ease-in-out'
 				})
 				.from('.gfDesc', { opacity: 0, duration: 0.75, ease: 'ease-in-out' });
-			let gfImg = gsap.timeline({
-				scrollTrigger: {
-					trigger: '.gfDesc',
-					start: 'top bottom',
-					end: '+=700',
-					scrub: true
-				}
-			});
-			gfImg.from('.stationsContainer img', {
-				opacity: 0,
-				duration: 0.75,
-				x: 1500,
-				stagger: 0.25,
-				y: 1000,
-				ease: 'ease-in-out'
-			});
 		}
 	});
 </script>
@@ -89,19 +74,5 @@
 		color: #fff;
 		text-shadow: 2px 2px 3px #000;
 	}
-	.stationsContainer {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 90%;
 
-		margin: 0 auto;
-		padding: 0;
-		gap: 5vw;
-
-		@media (max-width: 620px) {
-			flex-direction: column;
-			gap: 30px;
-		}
-	}
 </style>

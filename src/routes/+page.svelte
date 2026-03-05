@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import EasterSunday from '$components/EasterSunday.svelte';
 	import EEH from '$components/EasterEggHunt.svelte';
 	import GoodFriday from '$components/GoodFriday.svelte';
