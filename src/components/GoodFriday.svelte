@@ -51,9 +51,7 @@
 <Block {blockClass} {id}>
 	<div class="GFcontainer" id="GFContainer">
 		<div class="textContainer">
-			<p class="desc gfDesc">
-				Join us for a Stations of the Cross self-directed experience and an evening Worship Service.
-			</p>
+			<p class="desc gfDesc">Join us for self guided experience.</p>
 		</div>
 		<div class="headlineContainer">
 			<h1 class="gfTitle">Good Friday</h1>
@@ -61,9 +59,8 @@
 
 		<div class="descContainer">
 			<p class="desc">At Westwoods Community Church - 7700 W. Woodard Dr.</p>
-			<p class="desc">Friday: April 18th</p>
-			<p class="desc">Stations of the Cross: 12pm-6:30pm (come anytime)</p>
-			<p class="desc">Worship Service: 7pm-7:45pm</p>
+			<p class="desc">Friday: April 3rd</p>
+			<p class="desc">Doors will be open from 12-7pm</p>
 		</div>
 	</div>
 </Block>

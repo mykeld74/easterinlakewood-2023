@@ -32,14 +32,10 @@
 
 <Block {blockClass} {id}>
 	<div class="contentContainer eehContainer">
-		<div class="cancelContainer">
-			<p class="cancel">Canceled</p>
-			<p class="cancelDesc">Due to inclement weather we have canceled the Easter Egg Hunt.</p>
-		</div>
 		<p class="hopOver">Hop on over for our</p>
 		<div class="joinUs">
 			<p class="join">Join us on</p>
-			<p class="date">April 19th <br /> 10-noon</p>
+			<p class="date">April 4th <br /> 10-noon</p>
 		</div>
 		<div class="eeh">
 			<p class="easter">Easter<br />Egg Hunt</p>

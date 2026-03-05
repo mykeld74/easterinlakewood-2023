@@ -7,20 +7,24 @@
 
 <Block {blockClass} {id}>
 	<div class="contentContainer">
-		<h1>
-			Join us as we celebrate the resurrection of Jesus. We will have something engaging and
-			encouraging for all ages.
-		</h1>
+		<p class="desc">
+			Let’s be honest.A lot of people only go to church on Easter. And a lot of people stopped going
+			altogether. If that’s you — you’re invited. No pressure.No perfect people.Just real
+			conversations about real life. If you don’t already have plans, we would love for you
+		</p>
 
 		<div class="easterContainer"><p class="easterText">Easter</p></div>
 
 		<div class="timeContainer">
-			<p class="desc">Sunday: April 20th, 9:00am & 10:30am</p>
+			<h1 class="desc">Easter & Me</h1>
+			<p class="desc">Sunday: April 5th, 9:00am & 10:30am</p>
 			<p class="desc">
 				Because the great news of Easter is too big to be contained in a single Sunday, we will be
 				doing 3 weeks of Easter celebrations.
 			</p>
-			<p class="desc">Please join us April 20th, 27th, and May 4th. At 9:00 or 10:30.</p>
+			<p class="desc">
+				Please join us April 12th, 19th, and 26th for the remainder of the series. At 9:00 or 10:30.
+			</p>
 			<p class="desc">7700 W. Woodard Drive</p>
 		</div>
 	</div>
