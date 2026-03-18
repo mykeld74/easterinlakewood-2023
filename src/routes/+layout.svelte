@@ -14,10 +14,14 @@
 
 	function trackPageView(url: URL) {
 		if (!gaId) return;
-		// `gtag` is defined in `initGA()` below.
-		(window as any).gtag?.('config', gaId, {
-			page_path: url.pathname + url.search + url.hash
-		});
+		try {
+			// `gtag` is defined in `initGA()` below.
+			(window as any).gtag?.('config', gaId, {
+				page_path: url.pathname + url.search + url.hash
+			});
+		} catch {
+			// Never break navigation / rendering if GA has an issue.
+		}
 	}
 
 	let didInitGA = false;
@@ -27,33 +31,37 @@
 		if (!browser) return;
 		if (!gaId) return;
 
-		didInitGA = true;
+		try {
+			// Create `dataLayer` + `gtag` immediately so we can call `gtag('config', ...)`
+			// without relying on fragile string interpolation inside <script> tags.
+			(window as any).dataLayer = (window as any).dataLayer || [];
+			(window as any).gtag =
+				(window as any).gtag ||
+				function gtag(...args: unknown[]) {
+					(window as any).dataLayer.push(args);
+				};
 
-		// Create `dataLayer` + `gtag` immediately so we can call `gtag('config', ...)`
-		// without relying on fragile string interpolation inside <script> tags.
-		(window as any).dataLayer = (window as any).dataLayer || [];
-		(window as any).gtag =
-			(window as any).gtag ||
-			function gtag(...args: unknown[]) {
-				(window as any).dataLayer.push(args);
-			};
+			(window as any).gtag('js', new Date());
 
-		(window as any).gtag('js', new Date());
+			// Ensure the GA script is loaded.
+			const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+			const existing = document.querySelector(`script[src="${scriptSrc}"]`);
+			if (!existing) {
+				const script = document.createElement('script');
+				script.async = true;
+				script.src = scriptSrc;
+				document.head.appendChild(script);
+			}
 
-		// Ensure the GA script is loaded.
-		const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-		const existing = document.querySelector(`script[src="${scriptSrc}"]`);
-		if (!existing) {
-			const script = document.createElement('script');
-			script.async = true;
-			script.src = scriptSrc;
-			document.head.appendChild(script);
+			// Initial page view.
+			(window as any).gtag('config', gaId, {
+				page_path: window.location.pathname + window.location.search + window.location.hash
+			});
+
+			didInitGA = true;
+		} catch {
+			didInitGA = false; // allow retry on next navigation
 		}
-
-		// Initial page view.
-		(window as any).gtag('config', gaId, {
-			page_path: window.location.pathname + window.location.search + window.location.hash
-		});
 	}
 
 	// Track initial page view + SPA navigation changes.
