@@ -14,21 +14,59 @@
 
 	function trackPageView(url: URL) {
 		if (!gaId) return;
-		// `gtag` is created by the inline GA snippet in <svelte:head>.
+		// `gtag` is defined in `initGA()` below.
 		(window as any).gtag?.('config', gaId, {
 			page_path: url.pathname + url.search + url.hash
 		});
 	}
 
-	if (browser && gaId) {
-		// `afterNavigate` runs on initial mount too, so skip the first call
-		// (the inline snippet already sends the initial page_view).
-		let didFirst = false;
+	let didInitGA = false;
+
+	function initGA() {
+		if (didInitGA) return;
+		if (!browser) return;
+		if (!gaId) return;
+
+		didInitGA = true;
+
+		// Create `dataLayer` + `gtag` immediately so we can call `gtag('config', ...)`
+		// without relying on fragile string interpolation inside <script> tags.
+		(window as any).dataLayer = (window as any).dataLayer || [];
+		(window as any).gtag =
+			(window as any).gtag ||
+			function gtag(...args: unknown[]) {
+				(window as any).dataLayer.push(args);
+			};
+
+		(window as any).gtag('js', new Date());
+
+		// Ensure the GA script is loaded.
+		const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+		const existing = document.querySelector(`script[src="${scriptSrc}"]`);
+		if (!existing) {
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = scriptSrc;
+			document.head.appendChild(script);
+		}
+
+		// Initial page view.
+		(window as any).gtag('config', gaId, {
+			page_path: window.location.pathname + window.location.search + window.location.hash
+		});
+	}
+
+	// Track initial page view + SPA navigation changes.
+	if (browser) initGA();
+
+	let didFirstNavigationCallback = false;
+	if (gaId) {
 		afterNavigate(({ to }) => {
-			if (!didFirst) {
-				didFirst = true;
+			if (!didFirstNavigationCallback) {
+				didFirstNavigationCallback = true;
 				return;
 			}
+
 			if (to?.url) trackPageView(to.url);
 		});
 	}
@@ -41,20 +79,6 @@
 		href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Federo&display=swap"
 		rel="stylesheet"
 	/>
-
-	{#if gaId}
-		<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				window.dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', '{gaId}', {
-				page_path: window.location.pathname + window.location.search + window.location.hash
-			});
-		</script>
-	{/if}
 </svelte:head>
 
 <nav>
