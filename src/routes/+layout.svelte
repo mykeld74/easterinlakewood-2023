@@ -2,11 +2,36 @@
 	import Img from '$components/Image.svelte';
 	import '$css/reset.css';
 	import '$css/style.css';
+	import { afterNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
+
+	const gaId = import.meta.env.VITE_GA_ID as string | undefined;
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
 
 	let { children }: Props = $props();
+
+	function trackPageView(url: URL) {
+		if (!gaId) return;
+		// `gtag` is created by the inline GA snippet in <svelte:head>.
+		(window as any).gtag?.('config', gaId, {
+			page_path: url.pathname + url.search + url.hash
+		});
+	}
+
+	if (browser && gaId) {
+		// `afterNavigate` runs on initial mount too, so skip the first call
+		// (the inline snippet already sends the initial page_view).
+		let didFirst = false;
+		afterNavigate(({ to }) => {
+			if (!didFirst) {
+				didFirst = true;
+				return;
+			}
+			if (to?.url) trackPageView(to.url);
+		});
+	}
 </script>
 
 <svelte:head>
@@ -16,6 +41,20 @@
 		href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Federo&display=swap"
 		rel="stylesheet"
 	/>
+
+	{#if gaId}
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', '{gaId}', {
+				page_path: window.location.pathname + window.location.search + window.location.hash
+			});
+		</script>
+	{/if}
 </svelte:head>
 
 <nav>
@@ -35,7 +74,7 @@
 	</div>
 </footer>
 
-<style lang="scss">
+<style>
 	nav {
 		position: fixed;
 		top: 0;
@@ -61,19 +100,21 @@
 		padding-left: clamp(5px, 1.5vw, 10px);
 		font-size: clamp(12px, 2vw, 16px);
 		text-shadow: 1px 1px 3px #333;
-
-		&:first-child {
-			border-left: none;
-		}
-
-		a {
-			text-decoration: none;
-			color: #fff;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
 	}
+
+	li:first-child {
+		border-left: none;
+	}
+
+	li a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	li a:hover {
+		text-decoration: underline;
+	}
+
 	footer {
 		position: fixed;
 		bottom: 0;
@@ -82,12 +123,16 @@
 		background: transparent;
 		display: flex;
 		justify-content: flex-end;
-		@media (max-width: 450px) {
+	}
+
+	footer .imgContainer {
+		width: 150px;
+		margin: 0 20px 20px 0;
+	}
+
+	@media (max-width: 450px) {
+		footer {
 			display: none;
-		}
-		.imgContainer {
-			width: 150px;
-			margin: 0 20px 20px 0;
 		}
 	}
 </style>

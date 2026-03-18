@@ -33,7 +33,7 @@
 	</div>
 </Block>
 
-<style lang="scss">
+<style>
 	.directionContainer {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -45,32 +45,39 @@
 	}
 	.directionText {
 		width: 100%;
-		p {
-			color: #fff;
-			font-size: clamp(22px, 3vw, 34px);
-			margin: 0 0 10px 0;
-
-			&.churchName {
-				font-size: clamp(28px, 5vw, 48px);
-			}
-			a {
-				color: #fff;
-				text-decoration: none;
-				transition: all 0.3s ease-in-out;
-				&:hover {
-					text-decoration: underline;
-					color: #ed1f25;
-				}
-			}
-		}
 	}
+
+	.directionText p {
+		color: #fff;
+		font-size: clamp(22px, 3vw, 34px);
+		margin: 0 0 10px 0;
+	}
+
+	.directionText p.churchName {
+		font-size: clamp(28px, 5vw, 48px);
+	}
+
+	.directionText p a {
+		color: #fff;
+		text-decoration: none;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.directionText p a:hover {
+		text-decoration: underline;
+		color: #ed1f25;
+	}
+
 	#wwMap {
 		width: 100%;
 		aspect-ratio: 16/9;
 	}
 	.logoContainer {
 		display: none;
-		@media (max-width: 449px) {
+	}
+
+	@media (max-width: 449px) {
+		.logoContainer {
 			display: block;
 			position: absolute;
 			bottom: 20px;

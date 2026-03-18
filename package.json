@@ -23,7 +23,6 @@
 		"gsap": "^3.11.4",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.6",
-		"sass": "^1.59.2",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"tslib": "^2.4.1",

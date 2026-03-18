@@ -30,7 +30,7 @@
 	</div>
 </Block>
 
-<style lang="scss">
+<style>
 	h1 {
 		font-size: clamp(30px, 5vw, 50px);
 		text-align: center;
@@ -60,12 +60,14 @@
 		align-self: self-end;
 		max-width: 1200px;
 		margin: 0 auto;
-		.desc {
-			max-width: 100%;
-		}
-		p {
-			font-size: clamp(22px, 4vw, 40px);
-		}
+	}
+
+	.timeContainer .desc {
+		max-width: 100%;
+	}
+
+	.timeContainer p {
+		font-size: clamp(22px, 4vw, 40px);
 	}
 
 </style>

@@ -12,7 +12,7 @@
 	{@render children?.()}
 </div>
 
-<style lang="scss">
+<style>
 	.block {
 		display: flex;
 		justify-content: center;
@@ -44,17 +44,18 @@
 		position: relative;
 		flex-direction: column;
 		gap: 5vh;
-		&:after {
-			position: absolute;
-			content: '';
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/grungeoverlay')
-				50% 50% / cover no-repeat fixed;
-			opacity: 0.1;
-			pointer-events: none;
-		}
+	}
+
+	.directions:after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url('https://res.cloudinary.com/mykeld74/image/upload/f_auto,q_auto/easterinlakewood/grungeoverlay')
+			50% 50% / cover no-repeat fixed;
+		opacity: 0.1;
+		pointer-events: none;
 	}
 </style>

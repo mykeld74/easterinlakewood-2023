@@ -48,7 +48,7 @@
 	</div>
 </Block>
 
-<style lang="scss">
+<style>
 	.contentContainer {
 		overflow: hidden;
 	}
@@ -59,7 +59,10 @@
 		margin: 0;
 		gap: 20px;
 		position: relative;
-		@media (max-width: 1900px) {
+	}
+
+	@media (max-width: 1900px) {
+		.eehContainer {
 			grid-template-columns: 1fr;
 			grid-template-areas: 'title' 'eeh' 'joinUs' 'eehDesc';
 		}

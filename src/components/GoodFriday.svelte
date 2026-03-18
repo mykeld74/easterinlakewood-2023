@@ -50,20 +50,20 @@
 	</div>
 </Block>
 
-<style lang="scss">
+<style>
 	.headlineContainer {
 		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		h1 {
-			text-align: center;
-			font-family: 'Federo', sans-serif;
-			font-size: clamp(36px, 20vw, 180px);
+	}
 
-			margin: 0;
-		}
+	.headlineContainer h1 {
+		text-align: center;
+		font-family: 'Federo', sans-serif;
+		font-size: clamp(36px, 20vw, 180px);
+		margin: 0;
 	}
 	.GFcontainer {
 		display: flex;
