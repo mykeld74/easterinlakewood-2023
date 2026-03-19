@@ -4,8 +4,9 @@
 	import '$css/style.css';
 	import { afterNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
+	import { PUBLIC_GA_ID } from '$env/static/public';
 
-	const gaId = import.meta.env.VITE_GA_ID as string | undefined;
+	const gaId = PUBLIC_GA_ID;
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
