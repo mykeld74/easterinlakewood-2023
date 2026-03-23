@@ -2,86 +2,23 @@
 	import Img from '$components/Image.svelte';
 	import '$css/reset.css';
 	import '$css/style.css';
-	import { afterNavigate } from '$app/navigation';
-	import { browser } from '$app/environment';
-	import { PUBLIC_GA_ID } from '$env/static/public';
-
-	const gaId = PUBLIC_GA_ID;
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
 
 	let { children }: Props = $props();
-
-	function trackPageView(url: URL) {
-		if (!gaId) return;
-		try {
-			// `gtag` is defined in `initGA()` below.
-			(window as any).gtag?.('config', gaId, {
-				page_path: url.pathname + url.search + url.hash
-			});
-		} catch {
-			// Never break navigation / rendering if GA has an issue.
-		}
-	}
-
-	let didInitGA = false;
-
-	function initGA() {
-		if (didInitGA) return;
-		if (!browser) return;
-		if (!gaId) return;
-
-		try {
-			// Create `dataLayer` + `gtag` immediately so we can call `gtag('config', ...)`
-			// without relying on fragile string interpolation inside <script> tags.
-			(window as any).dataLayer = (window as any).dataLayer || [];
-			(window as any).gtag =
-				(window as any).gtag ||
-				function gtag(...args: unknown[]) {
-					(window as any).dataLayer.push(args);
-				};
-
-			(window as any).gtag('js', new Date());
-
-			// Ensure the GA script is loaded.
-			const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-			const existing = document.querySelector(`script[src="${scriptSrc}"]`);
-			if (!existing) {
-				const script = document.createElement('script');
-				script.async = true;
-				script.src = scriptSrc;
-				document.head.appendChild(script);
-			}
-
-			// Initial page view.
-			(window as any).gtag('config', gaId, {
-				page_path: window.location.pathname + window.location.search + window.location.hash
-			});
-
-			didInitGA = true;
-		} catch {
-			didInitGA = false; // allow retry on next navigation
-		}
-	}
-
-	// Track initial page view + SPA navigation changes.
-	if (browser) initGA();
-
-	let didFirstNavigationCallback = false;
-	if (gaId) {
-		afterNavigate(({ to }) => {
-			if (!didFirstNavigationCallback) {
-				didFirstNavigationCallback = true;
-				return;
-			}
-
-			if (to?.url) trackPageView(to.url);
-		});
-	}
 </script>
 
 <svelte:head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5FESKZ3JBS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-5FESKZ3JBS');
+	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
